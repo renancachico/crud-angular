@@ -17,7 +17,6 @@ export class CoursesComponent implements OnInit {
   //courses: Course[] = [];
   displayedColumns = ['name', 'category']
 
-  
   //coursesService: CoursesService;
 
   constructor(
