@@ -15,18 +15,13 @@ import { CoursesService } from '../services/courses.service';
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>;
-  //courses: Course[] = [];
-  displayedColumns = ['name', 'category', 'actions']
 
   //coursesService: CoursesService;
 
-  constructor(
-    private coursesService: CoursesService,
-    public dialog: MatDialog,
-    private router: Router,
-    private route: ActivatedRoute) {
-    //this.courses = [];
-    //this.coursesService = new CoursesService();
+  constructor(private coursesService: CoursesService,
+              public dialog: MatDialog,
+              private router: Router,
+              private route: ActivatedRoute) {
     this.courses$ = this.coursesService.list()
     .pipe(
       catchError(error => {
@@ -34,8 +29,6 @@ export class CoursesComponent implements OnInit {
         return of([])
       })
     );
-
-    //this.coursesService.list().subscribe(this.courses => this.courses = this.courses);
    }
 
    onError(errorMsg: string){
